@@ -51,7 +51,7 @@ echo "[+] Allowing cloudflare nodes.. (and refreshing cloudflare.conf)";
 tmpf=$(mktemp);
 for ip in ${list};
 do
-        echo -en "\r\033[K\tBanning $ip...";
+        echo -en "\r\033[K\tAccepting $ip...";
         iptables -w -I "$chainname" -s "$ip" -j ACCEPT;
         echo "set_real_ip_from $ip;" >> $tmpf;
 done;
