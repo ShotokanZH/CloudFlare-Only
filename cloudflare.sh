@@ -26,6 +26,12 @@ then
         PATH="$PATH:/sbin";     #cron does not have /sbin/ in $PATH
 fi;
 
+which nginx >/dev/null;
+if [ $? -ne 0 ];
+then
+        PATH="$PATH:/usr/sbin";     #cron does not have /usr/sbin/ in $PATH
+fi;
+
 echo -n "[+] Requesting IPs.."
 list=$(curl -s https://www.cloudflare.com/ips-v4 | grep -ioP "^[0-9.]+\/[0-9]+$");
 if [ '$list' = '' ];
