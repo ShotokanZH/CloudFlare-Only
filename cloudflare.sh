@@ -34,7 +34,7 @@ fi;
 
 echo -n "[+] Requesting IPs.."
 list=$(curl -s https://www.cloudflare.com/ips-v4 | grep -ioP "^[0-9.]+\/[0-9]+$");
-if [ '$list' = '' ];
+if [ "$list" = "" ];
 then
         echo "[-] Something went wrong.." >&2;
         rm "$token";
